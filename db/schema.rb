@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_162840) do
+ActiveRecord::Schema.define(version: 2018_12_16_185132) do
 
   create_table "buyers", force: :cascade do |t|
     t.string "buyer_name"
-    t.integer "buyer_number"
+    t.integer "buyer_number", limit: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
