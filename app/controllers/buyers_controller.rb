@@ -10,9 +10,17 @@ end
 def create
   
  @buyer = Buyer.create(from_the_ui)
- @buyer.save
+ if @buyer.save
+   
+   flash[:notice] = "Order was successfully created"
+   redirect_to buyer_path(@buyer)
+ else
+   
+   render'new'
+ end
  
-redirect_to buyer_path(@buyer)
+ 
+
  
 end 
 

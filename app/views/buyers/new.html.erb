@@ -1,5 +1,13 @@
 <h1> Order here </h1>
 
+<% if @buyer.errors.any? %>
+<% @buyer.errors.full_messages.each do |t| %>
+
+<ul><li><%= t %></li></ul>
+
+<%end%>
+<%end%>
+
 <%= form_for @buyer do |f| %>
 
 <%= f.label:"Please enter your name" %></br>
@@ -17,7 +25,7 @@
 <%end %>
 </p>
 
-<%= f.submit %>
+<%= f.submit 'Place Order'%>
 
 <%end%>
 </br>
