@@ -1,0 +1,25 @@
+<h1> Order here </h1>
+
+<%= form_for @buyer do |f| %>
+
+<%= f.label:"Please enter your name" %></br>
+<%= f.text_field:buyer_name %></br>
+<%= f.label:"Phone number to contact" %></br>
+<%= f.text_field:buyer_number %></br>
+<p>
+<%= f.fields_for :orders  do |t| %>
+<%= t.label:"Enter name of the flower" %></br>
+<%= t.text_field :order_name %></br>
+<%= t.label:"Order Qty" %></br>
+<%= t.text_field :order_qty %></br>
+<%= t.label:"Where to Deliver ? please enter complete address" %></br>
+<%= t.text_area :order_address %></br>
+<%end %>
+</p>
+
+<%= f.submit %>
+
+<%end%>
+</br>
+<p>
+<%= link_to "All orders", buyers_path %></p>

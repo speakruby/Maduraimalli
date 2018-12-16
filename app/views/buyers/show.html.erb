@@ -1,0 +1,34 @@
+<table>
+  <tr>Customer Name </tr>|
+  <tr>Phone Number</tr>
+  <td><%= @buyer.buyer_name %> </td>|
+  <td> <%= @buyer.buyer_number %></td>
+  
+ </table> 
+ 
+         <h2>All Orders</h2>
+         <table>
+           <tr>Order ID </tr>|
+           <tr>Flower</tr>|
+           <tr>Quantity</tr>|
+           <tr>Address</tr></br>
+         
+         <% @buyer1.each do |t| %>
+            <%if @buyer.buyer_number == t.buyer_number %>
+                  
+                  <% @order = Order.find(t.id)%> &nbsp;&nbsp;
+                  <%= @order.id %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <%= @order.order_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <%= @order.order_qty %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <%= @order.order_address %>&nbsp;&nbsp;</br>
+                  
+                  
+            <%else%>
+            
+            <%end%>
+        <%end%>
+        
+        </table>
+
+</br>
+<p><%= link_to "Order more flowers here", new_buyer_path %></p>

@@ -1,0 +1,29 @@
+
+<h1> List of all orders </h1>
+
+
+<table>
+  <tr> Customer ID   |</tr>
+  <tr> Customer Name | </tr>
+  <tr> Phone Number  |</tr>
+  <tr>Order Number</tr>|
+  <tr>Flower Ordered</tr>|
+  <tr>Qty Ordered</tr>|
+  <tr>Address</tr>
+  <td>
+      
+      <% @buyer.each do |t| %>
+            <%= t.id %>|
+            <%= t.buyer_name %>|
+            <%= t.buyer_number %>||
+                <% @order = Order.find(t.id)%>
+                <%= @order.id %>|
+                <%= @order.order_name %>|
+                <%= @order.order_qty %>|
+                <%= @order.order_address %></br>
+      <%end%>
+    </td>
+  </tr>
+  
+</table>
+
