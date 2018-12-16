@@ -22,12 +22,11 @@
 <%= t.text_field :order_qty %></br>
 <%= t.label:"Where to Deliver ? please enter complete address" %></br>
 <%= t.text_area :order_address %></br>
+<%= t.label:"When to Deliver?" %></br>
+<%= t.datetime_field :expected_deivery %></br>
 <%end %>
 </p>
 
 <%= f.submit 'Place Order'%>
 
 <%end%>
-</br>
-<p>
-<%= link_to "All orders", buyers_path %></p>

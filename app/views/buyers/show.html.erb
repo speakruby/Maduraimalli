@@ -1,34 +1,56 @@
+<html>
+  <body>
+
 <table>
-  <tr>Customer Name </tr>|
-  <tr>Phone Number</tr>
-  <td><%= @buyer.buyer_name %> </td>|
-  <td> <%= @buyer.buyer_number %></td>
-  
+  <th>Customer Name </th>
+  <tr>
+  <td><%= @buyer.buyer_name %> </td>
+  </tr>
+   <th>Phone Number</th>
+   <tr> <td> <%= @buyer.buyer_number %></td>
+ </tr>
  </table> 
  
          <h2>All Orders</h2>
-         <table>
-           <tr>Order ID </tr>|
-           <tr>Flower</tr>|
-           <tr>Quantity</tr>|
-           <tr>Address</tr></br>
+         <table border="1">
+           <thead>
+           <tr>
+           <th style="text-align:center",style="width: 50x">Order ID </th>
+           <th style="text-align:center",style="width: 100px">Flower </th>
+           <th style="text-align:center",style="width: 100px">Quantity </th>
+           <th style="text-align:center",style="width: 100px">Address</th>
+           <th style="text-align:center",style="width: 100px"> Delivery Date </th>
+           <th style="text-align:center",style="width: 100px"> Order Created </th>
+           
+           </tr>
+           </thead>
+           
+           <tbody>
+           <tr>
          
          <% @buyer1.each do |t| %>
             <%if @buyer.buyer_number == t.buyer_number %>
                   
-                  <% @order = Order.find(t.id)%> &nbsp;&nbsp;
-                  <%= @order.id %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= @order.order_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= @order.order_qty %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <%= @order.order_address %>&nbsp;&nbsp;</br>
-                  
-                  
+                 <% @order = Order.find(t.id)%>
+                 
+                 <td style="text-align:center",style="width: 20px"> <%= @order.id %>  </td>
+                <td style="text-align:center",style="width: 20px"> <%= @order.order_name %> </td>
+                 <td style="text-align:center",style="width: 20px"><%= @order.order_qty %></td>
+                 <td style="text-align:right",style="width: 20px"><%= @order.order_address %></td>
+                 <td style="text-align:right",style="width: 20px"> <%= (@order.expected_deivery).strftime("%FT%R") %>  </td>
+                 <td style="text-align:right",style="width: 20px"> <%= (@order.created_at).strftime("%F") %>  </td>
             <%else%>
             
             <%end%>
+            
+            </tr>
+            </tbody>
+            
         <%end%>
         
         </table>
 
 </br>
 <p><%= link_to "Order more flowers here", new_buyer_path %></p>
+</html>
+</body>

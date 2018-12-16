@@ -15,6 +15,38 @@ $navbar-default-bg: #08088A;
   
 }
 
+#circle {
+  
+  position: absolute;
+    width: 100px;
+    height: 100px;
+    background: green;
+    z-index: 50;
+    top: 50%;
+  left: 50%;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 50px;
+    border-radius: 100px;
+    margin: -100px 0 0 -150px;
+    
+}
+
+
+
+#neworder {
+  
+  
+  font-size: .9em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+   top: 50%;
+  left: 50%;
+  
+}
+
+
 #logo:hover {
   
     color: #fff;
@@ -25,10 +57,12 @@ $navbar-default-bg: #08088A;
 .center {                  
   
   text-align: center;
+  vertical-align: middle;
+line-height: 90px;
   
 }
 
 .bkg{
   
-  background-image: asset-url('Malli.jpg');
+  background-image: asset-url('Jasmine_Flowers');
 }

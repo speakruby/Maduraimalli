@@ -10,6 +10,7 @@ end
 def create
   
  @buyer = Buyer.create(from_the_ui)
+ 
  if @buyer.save
    
    flash[:notice] = "Order was successfully created"
@@ -18,9 +19,6 @@ def create
    
    render'new'
  end
- 
- 
-
  
 end 
 
@@ -41,7 +39,7 @@ private
 
    def from_the_ui
     
-    params.require(:buyer).permit(:buyer_name,:buyer_number,orders_attributes:[:order_name,:order_qty,:order_address])
+    params.require(:buyer).permit(:buyer_name,:buyer_number,orders_attributes:[:order_name,:order_qty,:order_address,:expected_deivery])
    end
 end
 
