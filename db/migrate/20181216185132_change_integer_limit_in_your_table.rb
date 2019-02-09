@@ -4,4 +4,6 @@ class ChangeIntegerLimitInYourTable < ActiveRecord::Migration[5.2]
     change_column :buyers, :buyer_number, :integer, limit: 8
     
   end
+  
+ 
 end

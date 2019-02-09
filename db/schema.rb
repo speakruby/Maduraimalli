@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_192855) do
+ActiveRecord::Schema.define(version: 2019_02_09_151026) do
 
   create_table "buyers", force: :cascade do |t|
     t.string "buyer_name"
     t.integer "buyer_number", limit: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_buyers_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -30,6 +32,21 @@ ActiveRecord::Schema.define(version: 2018_12_16_192855) do
     t.float "cost"
     t.text "status"
     t.index ["buyer_id"], name: "index_orders_on_buyer_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "shopify_domain", null: false
+    t.string "shopify_token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -6,7 +6,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.integer:order_qty
       t.text:order_address
       t.timestamps
-      t.references :buyer
+      t.references :buyer, index: true,foreign_key: true
     end
   end
 end
